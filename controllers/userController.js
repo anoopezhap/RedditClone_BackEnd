@@ -68,6 +68,14 @@ exports.getAllMyThreads = catchAsync(async (req, res, next) => {
         model: Like,
         attributes: ["id"], //,[sequelize.fn('COUNT', sequelize.col('likes.id')), 'n_hats']],
       },
+      {
+        model: Comment,
+        attributes: ["comment", "id"],
+        include: {
+          model: User,
+          attributes: ["userName"],
+        },
+      },
     ],
     // ,attributes:['id','title','description','image'],
   });
