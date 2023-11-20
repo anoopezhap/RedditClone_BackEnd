@@ -106,6 +106,9 @@ exports.editThread = catchAsync(async (req, res, next) => {
   const threadId = req.params.threadId;
   const userId = req.user.id;
 
+  // console.log("threadid", threadId);
+  // console.log("userid", userId);
+
   //verify is the thread exists with this thread it and if the thread belong
   //to the loggedin user
   const thread = await Thread.findAll({
